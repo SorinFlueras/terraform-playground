@@ -8,5 +8,5 @@ variable "create_bucket" {
 }
 
 variable "bucket_name" {
-  type    = bool
+  type    = string
 }
