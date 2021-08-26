@@ -1,2 +1,4 @@
-def test_sum():
-    assert sum(5, 5) == 10
+from bad-python import capital_case
+
+def test_capital_case():
+    assert capital_case('semaphore') == 'Semaphore'

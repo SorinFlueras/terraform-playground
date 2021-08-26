@@ -1,2 +1,2 @@
-def sum(num1, num2):
-    return num1 + num2
+def capital_case(x):
+    return x.capitalize()
