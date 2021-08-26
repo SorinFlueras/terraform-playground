@@ -23,19 +23,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Generate coverage reports
-        run: |
-          cd src
-          coverage run --source=$GITHUB_WORKSPACE/src -m pytest && coverage xml
-          coverage report -m
-          sed -i '' 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
-      - name: Commit report
-        run: |
-          git config --global user.name 'SorinFlueras'
-          git config --global user.email 'sorin.flueras@yahoo.com'
-          git add $GITHUB_WORKSPACE/src/coverage.xml
-          git commit -am "Automated coverage report"
-          git push
+      # - name: Generate coverage reports
+      #   run: |
+      #     cd src
+      #     coverage run --source=$GITHUB_WORKSPACE/src -m pytest && coverage xml
+      #     coverage report -m
+      #     sed -i '' 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
+      # - name: Commit report
+      #   run: |
+      #     git config --global user.name 'SorinFlueras'
+      #     git config --global user.email 'sorin.flueras@yahoo.com'
+      #     git add $GITHUB_WORKSPACE/src/coverage.xml
+      #     git commit -am "Automated coverage report"
+      #     git push
       - uses: sonarsource/sonarqube-scan-action@master
         timeout-minutes: 5
         env:
