@@ -25,11 +25,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate coverage reports
         run: |
-          py.test /__w/terraform-playground/terraform-playground/src/bad-python-test.py --cov=/__w/terraform-playground/terraform-playground/src/bad-python.py
-          coverage erase
-          cd ../coverage-reports
-          coverage xml
-      - name: Commit report
+          coverage run --source=/__w/terraform-playground/terraform-playground/src/bad-python.py -m pytest /__w/terraform-playground/terraform-playground/src/bad-python-test.py
+          coverage report -m
+          - name: Commit report
         run: |
           git config --global user.name 'SorinFlueras'
           git config --global user.email 'sorin.flueras@yahoo.com'
