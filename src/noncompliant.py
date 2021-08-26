@@ -69,3 +69,15 @@ cipher = ARC4.new(key) # Noncompliant: vulnerable to several attacks (see https:
 
 key = b'An arbitrarily long key'
 cipher = Blowfish.new(key, Blowfish.MODE_CBC) # Noncompliant: Blowfish use a 64-bit block size makes it vulnerable to birthday attacks
+
+######################################################
+def foo(a):  # NonCompliant
+    b = 12
+    if a == 1:
+        return b
+    return b
+
+#######################################################
+username = 'admin'
+password = 'admin' # Sensitive
+usernamePassword = 'user=admin&password=admin' # Sensitive
