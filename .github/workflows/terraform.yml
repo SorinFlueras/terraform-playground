@@ -26,7 +26,7 @@ jobs:
       - name: Generate coverage reports
         run: |
           cd src
-          coverage run -m pytest && coverage xml
+          coverage run --source=/__w/terraform-playground/terraform-playground/src -m pytest && coverage xml
           coverage report -m
           mv coverage.xml ../coverage-reports/coverage-report.xml
       - name: Commit report
