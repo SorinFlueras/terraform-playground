@@ -25,6 +25,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate coverage reports
         run: |
+          pwd
           py.test /github/workspace/src/bad-python-test.py --cov=/github/workspace/src/bad-python.py
           coverage erase
           cd ../coverage-reports
