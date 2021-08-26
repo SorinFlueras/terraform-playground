@@ -27,7 +27,7 @@ jobs:
         run: |
           coverage run --source=/__w/terraform-playground/terraform-playground/src/bad-python.py -m pytest /__w/terraform-playground/terraform-playground/src/bad-python-test.py
           coverage report -m
-          - name: Commit report
+      - name: Commit report
         run: |
           git config --global user.name 'SorinFlueras'
           git config --global user.email 'sorin.flueras@yahoo.com'
