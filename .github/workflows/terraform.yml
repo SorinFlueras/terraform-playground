@@ -19,7 +19,7 @@ jobs:
   security_check:
     runs-on: ubuntu-latest
     container: 
-      image: sorinflueras96/terraform-cicd:latest
+      image: sorinflueras96/terraform-cicd:lambdaguard
     steps:
       - name: Checkout
         uses: actions/checkout@v2
