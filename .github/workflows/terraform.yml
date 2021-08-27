@@ -30,7 +30,7 @@ jobs:
           cd src
           coverage run --source=$GITHUB_WORKSPACE/src -m pytest && coverage xml
           coverage report -m
-          sed -i '' 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
+          sed -i 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
           cat coverage.xml
       # - name: Commit report
       #   run: |
