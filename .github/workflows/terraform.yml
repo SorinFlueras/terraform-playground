@@ -25,12 +25,13 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      # - name: Generate coverage reports
-      #   run: |
-      #     cd src
-      #     coverage run --source=$GITHUB_WORKSPACE/src -m pytest && coverage xml
-      #     coverage report -m
-      #     sed -i '' 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
+      - name: Generate coverage reports
+        run: |
+          cd src
+          coverage run --source=$GITHUB_WORKSPACE/src -m pytest && coverage xml
+          coverage report -m
+          sed -i '' 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
+          cat coverage.xml
       # - name: Commit report
       #   run: |
       #     git config --global user.name 'SorinFlueras'
