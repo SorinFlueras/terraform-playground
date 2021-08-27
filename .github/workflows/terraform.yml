@@ -31,14 +31,14 @@ jobs:
           coverage run --source=$GITHUB_WORKSPACE/src -m pytest && coverage xml
           coverage report -m
           sed -i 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
-          cat coverage.xml
-      # - name: Commit report
-      #   run: |
-      #     git config --global user.name 'SorinFlueras'
-      #     git config --global user.email 'sorin.flueras@yahoo.com'
-      #     git add $GITHUB_WORKSPACE/src/coverage.xml
-      #     git commit -am "Automated coverage report"
-      #     git push
+          mv coverage.xml ../coverage-reports/coverage.xml
+      - name: Commit report
+        run: |
+          git config --global user.name 'SorinFlueras'
+          git config --global user.email 'sorin.flueras@yahoo.com'
+          git add $GITHUB_WORKSPACE/coverage-reports/coverage.xml
+          git commit -am "Automated coverage report"
+          git push
       - uses: sonarsource/sonarqube-scan-action@master
         timeout-minutes: 5
         env:
