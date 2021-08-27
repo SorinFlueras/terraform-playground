@@ -31,12 +31,8 @@ jobs:
           coverage run --source=$GITHUB_WORKSPACE/src -m pytest && coverage xml
           coverage report -m
           sed -i 's/.*<source>.*/            <source>\/github\/workspace\/src<\/source>/' coverage.xml
-          pwd
-          ls -lah
-          cd ..
-          pwd
-          ls -lah
-          cp coverage.xml $GITHUB_WORKSPACE/coverage-reports/coverage.xml
+          mkdir -p ../coverage-reports
+          mv coverage.xml ../coverage-reports/coverage.xml
       - name: Commit report
         run: |
           git config --global user.name 'SorinFlueras'
